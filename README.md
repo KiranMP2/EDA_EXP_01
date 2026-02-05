@@ -28,10 +28,51 @@ To perform Exploratory Data Analysis (EDA) on the IPL matches dataset and derive
   Identify teams with consistent winning trends.
   
   **Program**
-  #Write your code here
-
+```import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+matches = pd.read_csv("matches.csv")
+print("Dataset Shape:",matches.shape)
+print("columns:",matches.columns)
+print(matches.head())
+matches_per_season = matches['season'].value_counts().sort_index()
+matches_per_season
+plt.figure()
+matches_per_season.plot(kind='bar')
+plt.xlabel("Season")
+plt.ylabel("Number of Matches")
+plt.title("Matches Played Per IPL Season | SYED SAIF : 212224230286")
+plt.show()
+team_wins = matches['winner'].value_counts()
+team_wins
+top_5_teams = team_wins.head(5)
+top_5_teams
+plt.figure()
+top_5_teams.plot(kind='bar')
+plt.xlabel("Team")
+plt.ylabel("Number of Wins")
+plt.title("Top 5 Winning Teams in IPL | SYED SAIF : 212224230286")
+plt.xticks(rotation=45)
+plt.show()
+toss_decision_counts = matches['toss_decision'].value_counts()
+toss_decision_counts
+plt.figure()
+toss_decision_counts.plot(kind='bar')
+plt.xlabel("Toss Decision")
+plt.ylabel("Number of Times Chosen")
+plt.title("Toss Decision Preference in IPL | SYED SAIF : 212224230286")
+plt.show()
+venue_counts = matches['venue'].value_counts()
+venue_counts
+```
   **Output**
-  #Add necessary output screenhoets
+  ![SDKH](https://github.com/user-attachments/assets/8513925c-67ac-4cad-9869-91f5d7cb5e22)
+![KJCSB](https://github.com/user-attachments/assets/feb6a005-13ea-46a6-b340-cf9db90310c8)
+![HWJCS](https://github.com/user-attachments/assets/62c1d358-d530-45d0-8664-6fa07e95d241)
+![HWVJD](https://github.com/user-attachments/assets/e067e2c0-79c0-430a-896f-3d1914462f3a)
+![DWKG](https://github.com/user-attachments/assets/05906d96-72d8-42e8-9f4d-2e08f77d551b)
+![JV](https://github.com/user-attachments/assets/ebe9213f-f2ce-45ed-bde3-82dd84a07899)
+
 
  ** Result**
   This experiment is executed successfully
